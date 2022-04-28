@@ -19,12 +19,12 @@ public class Main {
         String fileName = "data.csv";
         List<Employee> list = parseCSV(columnMapping, fileName);
         String json = listToJson(list);
-        writeString(json);
+        writeString(json, fileName);
     }
 
-    public static void writeString(String nameFile) {
-        try (FileWriter file = new FileWriter("data.json")) {
-            file.write(nameFile);
+    public static void writeString(String json, String fileName) {
+        try (FileWriter file = new FileWriter(fileName)) {
+            file.write(json);
             file.flush();
         } catch (IOException e) {
             e.printStackTrace();
